@@ -1,6 +1,6 @@
 {
-  "name": "vue-admin",
-  "version": "1.1.0",
+  "name": "vue-element-admin",
+  "version": "1.0.0",
   "description": "> A Vue admin project template",
   "main": "index.js",
   "scripts": {
@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fa-web-template/vue-admin.git"
+    "url": "git+https://github.com/zyz-admin-template/vue-element-admin.git"
   },
   "keywords": [],
-  "author": "gd4ark <gd.4ark@gmail.com>",
+  "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fa-web-template/vue-admin/issues"
+    "url": "https://github.com/zyz-admin-template/vue-element-admin/issues"
   },
-  "homepage": "https://github.com/fa-web-template/vue-admin#readme"
+  "homepage": "https://github.com/zyz-admin-template/vue-element-admin#readme"
 }
