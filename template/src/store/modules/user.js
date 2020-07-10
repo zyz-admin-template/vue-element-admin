@@ -1,6 +1,5 @@
 import { login, getInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import { parseTime } from '@/utils/index'
 
 const user = {
   state: {
@@ -63,7 +62,7 @@ const user = {
           commit('SET_NAME', res.detail.username)
           commit('SET_AVATAR', res.detail.avatar)
           commit('SET_EMAIL', res.detail.email)
-          commit('SET_CREATE_TIME', parseTime(res.detail.createTime))
+          commit('SET_CREATE_TIME', res.detail.createTime)
           resolve(res)
         }).catch(error => {
           reject(error)
