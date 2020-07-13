@@ -1,30 +1,30 @@
 <template>
   <div class="navbar">
-    <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
-    <breadcrumb class="breadcrumb-container"/>
+    <hamburger
+      :toggle-click="toggleSideBar"
+      :is-active="sidebar.opened"
+      class="hamburger-container"
+    />
+    <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
       <template v-if="device!=='mobile'">
         <el-tooltip content="全屏" effect="dark" placement="bottom">
-          <screenfull class="screenfull right-menu-item"/>
+          <screenfull class="screenfull right-menu-item" />
         </el-tooltip>
       </template>
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
-          <img :src="avatar" class="user-avatar">
-          <i class="el-icon-caret-bottom"/>
+          <img :src="avatar" class="user-avatar" />
+          <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown">
           <router-link to="/">
-            <el-dropdown-item>
-              首页
-            </el-dropdown-item>
+            <el-dropdown-item>首页</el-dropdown-item>
           </router-link>
           <router-link to="/user/center">
-            <el-dropdown-item>
-              个人中心
-            </el-dropdown-item>
+            <el-dropdown-item>个人中心</el-dropdown-item>
           </router-link>
           <el-dropdown-item divided>
             <span style="display:block;" @click="logout">退出登录</span>
@@ -36,10 +36,10 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import Breadcrumb from '@/components/Breadcrumb'
-import Hamburger from '@/components/Hamburger'
-import Screenfull from '@/components/Screenfull'
+import { mapGetters } from "vuex";
+import Breadcrumb from "@/components/Breadcrumb";
+import Hamburger from "@/components/Hamburger";
+import Screenfull from "@/components/Screenfull";
 
 export default {
   components: {
@@ -48,83 +48,84 @@ export default {
     Screenfull
   },
   computed: {
-    ...mapGetters([
-      'sidebar',
-      'avatar',
-      'device'
-    ])
+    ...mapGetters(["sidebar", "avatar", "device"])
   },
   methods: {
     toggleSideBar() {
-      this.$store.dispatch('ToggleSideBar')
+      this.$store.dispatch("ToggleSideBar");
     },
     logout() {
-      this.$store.dispatch('LogOut').then(() => {
-        location.reload() // 为了重新实例化vue-router对象 避免bug
-      })
+      this.$store.dispatch("LogOut").then(() => {
+        location.reload(); // 为了重新实例化vue-router对象 避免bug
+      });
     }
   }
-}
+};
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  .navbar {
+.navbar {
+  position: relative;
+  background: #fff;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  .hamburger-container {
+    line-height: 55px;
     height: 50px;
-    line-height: 50px;
-    border-radius: 0px !important;
-    .hamburger-container {
-      line-height: 58px;
-      height: 50px;
-      float: left;
-      padding: 0 10px;
+    float: left;
+    padding: 0 10px 0 13px;
+    &:hover {
+      background: rgb(249, 249, 249);
     }
-    .breadcrumb-container{
-      float: left;
+  }
+  .breadcrumb-container {
+    float: left;
+  }
+  .errLog-container {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .right-menu {
+    float: right;
+    height: 100%;
+    &:focus {
+      outline: none;
     }
-    .errLog-container {
+    .right-menu-item {
       display: inline-block;
+      margin: 0 8px;
+    }
+    .screenfull {
+      height: 20px;
+    }
+    .international {
       vertical-align: top;
     }
-    .right-menu {
-      float: right;
-      height: 100%;
-      &:focus{
-        outline: none;
-      }
-      .right-menu-item {
-        display: inline-block;
-        margin: 0 8px;
-      }
-      .screenfull {
-        height: 20px;
-      }
-      .international{
-        vertical-align: top;
-      }
-      .theme-switch {
-        vertical-align: 15px;
-      }
-      .avatar-container {
-        height: 50px;
-        margin-right: 30px;
-        .avatar-wrapper {
-          margin-top: 5px;
-          position: relative;
-          .user-avatar {
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-          }
-          .el-icon-caret-bottom {
-            cursor: pointer;
-            position: absolute;
-            right: -20px;
-            top: 25px;
-            font-size: 12px;
-          }
+    .theme-switch {
+      vertical-align: 15px;
+    }
+    .avatar-container {
+      height: 50px;
+      margin-right: 30px;
+      .avatar-wrapper {
+        margin-top: 5px;
+        position: relative;
+        .user-avatar {
+          cursor: pointer;
+          width: 40px;
+          height: 40px;
+          border-radius: 10px;
+        }
+        .el-icon-caret-bottom {
+          cursor: pointer;
+          position: absolute;
+          right: -20px;
+          top: 25px;
+          font-size: 12px;
         }
       }
     }
   }
+}
 </style>
