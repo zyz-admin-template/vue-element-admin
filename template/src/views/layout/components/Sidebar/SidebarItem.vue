@@ -3,9 +3,9 @@
     <template
       v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow"
     >
-      <!-- <div style="background-color: #212529;text-align: center;height:50px;display: flex; align-items:center;justify-content: center;">
+      <div style="background-color: #212529;text-align: center;height:50px;display: flex; align-items:center;justify-content: center;">
         <img :src="logo" style="width: 50%" />
-      </div> -->
+      </div>
       <app-link :to="resolvePath(onlyOneChild.path)">
         <el-menu-item
           :index="resolvePath(onlyOneChild.path)"
@@ -119,7 +119,7 @@ export default {
     },
     initLogo() {
       if (this.sidebar.opened) {
-        this.logo = require("../../../../assets/logo/logo1.png");
+        this.logo = require("../../../../assets/logo/logo.png");
       } else {
         this.logo = require("../../../../assets/logo/logo2.png");
       }
