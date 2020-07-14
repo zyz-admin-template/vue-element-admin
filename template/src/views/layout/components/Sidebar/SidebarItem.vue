@@ -3,7 +3,7 @@
     <template
       v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow"
     >
-      <div style="background-color: #212529;text-align: center;height:50px;display: flex; align-items:center;justify-content: center;">
+      <div style="text-align: center;height:50px;display: flex; align-items:center;justify-content: center;">
         <img :src="logo" style="width: 50%" />
       </div>
       <app-link :to="resolvePath(onlyOneChild.path)">

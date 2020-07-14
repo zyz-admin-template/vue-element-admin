@@ -33,3 +33,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.el-menu-item {
+  &:hover {
+    background-color: rgb(27, 40, 56) !important;
+  }
+}
+</style>
